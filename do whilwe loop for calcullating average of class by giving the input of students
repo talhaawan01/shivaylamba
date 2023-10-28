@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+	
+int main() {
+    int totalStudents;
+    cout << "Enter the total number of students in the class: ";
+    cin >> totalStudents;
+
+    if (totalStudents <= 0) {
+        cout << "Total number of students must be a positive integer." << endl;
+        return 1; 
+    }
+
+    double sum = 0; // Initialize the sum of marks
+    int studentCount = 1; // Initialize the student counter
+
+    do {
+        double marks;
+        cout << "Enter marks for student " << studentCount << ": ";
+        cin >> marks;
+
+        if (marks < 0 || marks > 100) {
+            cout << "Marks should be between 0 and 100. Please re-enter." << endl;
+        } else {
+            sum += marks;
+            studentCount++;
+        }
+    } while (studentCount <= totalStudents);
+
+    double classAverage = sum / totalStudents;
+
+    cout << "The class average is: " << classAverage << endl;
+
+    return 0;
+}
